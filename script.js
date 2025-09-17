@@ -81,7 +81,7 @@ function handleCellClick(e) {
   if (result === "win") {
     gameActive = false;
     const winnerName = currentPlayer === "x" ? player1 : player2;
-    messageDiv.textContent = `${winnerName}, congratulations you won!`;
+    messageDiv.textContent = `${winnerName} congratulations you won!`;
   } else if (result === "draw") {
     gameActive = false;
     messageDiv.textContent = `It's a draw`;
