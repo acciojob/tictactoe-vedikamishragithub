@@ -17,18 +17,18 @@ let cellStates = {
 
 let playerO = '';
 let playerX = '';
-let turnO = true;
+let turnX = true;
 let gameActive = true;
 
 document.getElementById('submit').addEventListener('click', () => {
-  const nameO = document.getElementById('player1').value.trim();
-  const nameX = document.getElementById('player2').value.trim();
+  const nameX = document.getElementById('player1').value.trim();
+  const nameO = document.getElementById('player2').value.trim();
   if (!nameO || !nameX) {
     alert('Please enter both names');
     return;
   }
-  playerO = nameO;
   playerX = nameX;
+  playerO = nameO;
   document.getElementById('form-container').style.display = "none";
   document.getElementById('game').style.display = "block";
   startTicTacToe();
@@ -39,14 +39,14 @@ function startTicTacToe() {
  let statusOfPlayer = document.querySelector('.message');
 
   gameActive = true;
-  turnO= true;
+  turnX= true;
 
   // Reset game state
   for (let key in cellStates) {
     cellStates[key] = "";
   }
 
-  statusOfPlayer.innerText = `${playerO}, you're up`;
+  statusOfPlayer.innerText = `${playerX}, you're up`;
 
   // Reset board visually
   cells.forEach(cell => {
@@ -68,13 +68,13 @@ function startTicTacToe() {
       const cellId = cellIdRaw.replace('cell', '');
 
       if (turnO) {
-        cell.innerText = "o";
-        cellStates[cellId] = 'O';
-        statusOfPlayer.innerText = `${playerX}, you're up`;
-      } else {
         cell.innerText = "x";
-        cellStates[cellId] = 'X';
+        cellStates[cellId] = 'x';
         statusOfPlayer.innerText = `${playerO}, you're up`;
+      } else {
+        cell.innerText = "o";
+        cellStates[cellId] = 'o';
+        statusOfPlayer.innerText = `${playerX}, you're up`;
       }
       turnO = !turnO;
 
