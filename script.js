@@ -48,10 +48,10 @@ submitBtn.addEventListener("click", function() {
   gameDiv.classList.remove("hidden");
 
   // Initialize game
-  currentPlayer = "X";
+  currentPlayer = "x";
   currentPlayerName = player1;
   gameActive = true;
-  messageDiv.textContent = `${currentPlayerName}, you're up!`;
+  messageDiv.textContent = `${currentPlayerName}, you're up`;
 
   // Clear board
   for (let key in boardState) {
@@ -80,21 +80,21 @@ function handleCellClick(e) {
   const result = checkResult();
   if (result === "win") {
     gameActive = false;
-    const winnerName = currentPlayer === "X" ? player1 : player2;
+    const winnerName = currentPlayer === "x" ? player1 : player2;
     messageDiv.textContent = `${winnerName}, congratulations you won!`;
   } else if (result === "draw") {
     gameActive = false;
-    messageDiv.textContent = `It's a draw!`;
+    messageDiv.textContent = `It's a draw`;
   } else {
     // Switch player
-    if (currentPlayer === "X") {
-      currentPlayer = "O";
+    if (currentPlayer === "x") {
+      currentPlayer = "o";
       currentPlayerName = player2;
     } else {
-      currentPlayer = "X";
+      currentPlayer = "x";
       currentPlayerName = player1;
     }
-    messageDiv.textContent = `${currentPlayerName}, you're up!`;
+    messageDiv.textContent = `${currentPlayerName}, you're up`;
   }
 }
 

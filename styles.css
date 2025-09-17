@@ -24,7 +24,7 @@ body {
 }
 
 .cell {
-  background-color: lightgray;
+  background-color: lightpink;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,10 +34,10 @@ body {
 
 .cell.disabled {
   pointer-events: none;
-  background-color: #ddd;
+  background-color: lightpink;
 }
 
-.message {
+.message { 
   margin-top: 20px;
   font-size: 1.2rem;
   height: 1.5em; /* to reserve space */
