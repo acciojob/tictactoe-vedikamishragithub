@@ -36,10 +36,10 @@ document.getElementById('submit').addEventListener('click', () => {
 
 function startTicTacToe() {
   let cells = document.querySelectorAll('.cell');
- let statusOfPlayer = document.querySelector('.message');
+  let statusOfPlayer = document.querySelector('.message');
 
   gameActive = true;
-  turnX= true;
+  turnX = true;
 
   // Reset game state
   for (let key in cellStates) {
@@ -52,38 +52,34 @@ function startTicTacToe() {
   cells.forEach(cell => {
     cell.innerText = '';
     cell.classList.remove("disabled");
-    let newCell = cell.cloneNode(true);
-    cell.parentNode.replaceChild(newCell, cell);
   });
 
-  const freshCells = document.querySelectorAll('.cell');
-  freshCells.forEach(cell => {
+  cells.forEach(cell => {
     cell.addEventListener('click', () => {
       if (!gameActive) return;
       if (cell.classList.contains('disabled')) return;
 
       // Extract the cell key so it matches cellStates
-      // e.g. if id="cell3"
       const cellIdRaw = cell.id;
       const cellId = cellIdRaw.replace('cell', '');
 
-      if (turnO) {
-        cell.innerText = "x";
-        cellStates[cellId] = 'x';
+      if (turnX) {
+        cell.innerText = "X";
+        cellStates[cellId] = 'X';
         statusOfPlayer.innerText = `${playerO}, you're up`;
       } else {
-        cell.innerText = "o";
-        cellStates[cellId] = 'o';
+        cell.innerText = "O";
+        cellStates[cellId] = 'O';
         statusOfPlayer.innerText = `${playerX}, you're up`;
       }
-      turnO = !turnO;
+      turnX = !turnX;
 
       cell.classList.add('disabled');
 
       const result = checkResult();
-      if (result === "O" || result === "X") {
+      if (result === "X" || result === "O") {
         gameActive = false;
-        const winnerName = (result === 'O' ? playerO : playerX);
+        const winnerName = (result === 'X' ? playerX : playerO);
         statusOfPlayer.innerText = `${winnerName} congratulations you won!`;
       } else if (result === 'draw') {
         gameActive = false;
@@ -92,6 +88,7 @@ function startTicTacToe() {
     });
   });
 }
+
 
 function checkResult() {
   for (const combo of winCombo) {
