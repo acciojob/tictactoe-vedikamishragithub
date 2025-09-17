@@ -21,8 +21,8 @@ let turnO = true;
 let gameActive = true;
 
 document.getElementById('submit').addEventListener('click', () => {
-  const nameO = document.getElementById('player-1').value.trim();
-  const nameX = document.getElementById('player-2').value.trim();
+  const nameO = document.getElementById('player1').value.trim();
+  const nameX = document.getElementById('player2').value.trim();
   if (!nameO || !nameX) {
     alert('Please enter both names');
     return;
