@@ -39,7 +39,7 @@ function startTicTacToe() {
  let statusOfPlayer = document.querySelector('.message');
 
   gameActive = true;
-  turnO = true;
+  turnO= true;
 
   // Reset game state
   for (let key in cellStates) {
@@ -68,11 +68,11 @@ function startTicTacToe() {
       const cellId = cellIdRaw.replace('cell', '');
 
       if (turnO) {
-        cell.innerText = "O";
+        cell.innerText = "o";
         cellStates[cellId] = 'O';
         statusOfPlayer.innerText = `${playerX}, you're up`;
       } else {
-        cell.innerText = "X";
+        cell.innerText = "x";
         cellStates[cellId] = 'X';
         statusOfPlayer.innerText = `${playerO}, you're up`;
       }
