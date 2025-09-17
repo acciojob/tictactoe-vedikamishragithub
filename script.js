@@ -107,6 +107,7 @@ function checkResult() {
     return 'draw';
   }
 
+	
   return null;
 }
 
